@@ -43,12 +43,12 @@ echo "Gênero do Filme: {$genero}" . PHP_EOL;
 echo PHP_EOL;
 
 $filme = [
-    "Thor: Ragnarok",
-    2021,
-    7.8,
-    "Super-Herói"
+    "nome" => "Thor: Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "Super-Herói",
 ];
 
 var_dump($filme);
 echo PHP_EOL;
-echo $filme[0] . PHP_EOL;
+echo $filme['nome'] . PHP_EOL;
