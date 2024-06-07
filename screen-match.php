@@ -4,17 +4,18 @@ echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
 $nomeFilme = "Top Gun: Maverick";
 $nomeFilme = "Thor: Ragnarok";
-$nomeFilme = "Se beber não case";
+//$nomeFilme = "Se beber não case";
 
-$anoLancamento = $argv[1] ?? 2022;
+$anoLancamento = 2022;
 
-$somaDeNotas = 9;
-$somaDeNotas += 6;
-$somaDeNotas += 8;
-$somaDeNotas += 7.5;
-$somaDeNotas += 5;
+$quantidadeNotas = $argc - 1;
+$somaDeNotas = 0;
 
-$notaFilme = $somaDeNotas / 5;
+for ($contador = 1; $contador < $argc; $contador += 1) {
+    $somaDeNotas += $argv[$contador];
+}
+
+$notaFilme = $somaDeNotas / $quantidadeNotas;
 $planoPrime = true;
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
