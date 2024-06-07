@@ -1,5 +1,15 @@
 <?php
 
+function exibeMensagemLancamento(int $ano): void {
+    if ($ano > 2022) {
+        echo "Esse filme é um lançamento\n";
+    } elseif($ano > 2020 && $ano <= 2022) {
+        echo "Esse filme ainda é novo\n";
+    } else {
+        echo "Esse filme não é um lançamento\n";
+    }
+}
+
 echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
 $nomeFilme = "Top Gun: Maverick";
@@ -23,14 +33,7 @@ $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 echo "Nome do Filme: {$nomeFilme}" . PHP_EOL;
 echo "Nota do Filme: {$notaFilme}" . PHP_EOL;
 echo "Ano de Lançamento: {$anoLancamento}" . PHP_EOL;
-
-if ($anoLancamento > 2022) {
-    echo "Este filme é um lançamento!" . PHP_EOL;
-} elseif ($anoLancamento > 2020 && $anoLancamento <= 2022) {
-    echo "Esse filme ainda é novo." . PHP_EOL;
-} else {
-    echo "Esse filme não é um lançamento." . PHP_EOL;
-}
+echo exibeMensagemLancamento($anoLancamento);
 
 $genero = match($nomeFilme) {
     "Top Gun: Maverick" => 'Ação',
@@ -49,6 +52,6 @@ $filme = [
     "genero" => "Super-Herói",
 ];
 
-//var_dump($filme);
-echo PHP_EOL;
-echo $filme['nome'] . PHP_EOL;
+var_dump($filme);
+//echo PHP_EOL;
+//echo $filme['nome'] . PHP_EOL;
