@@ -3,7 +3,7 @@
 echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
 $nomeFilme = "Top Gun - Maverick";
-$anoLancamento = 2022;
+$anoLancamento = $argv[1] ?? 2022;
 
 $somaDeNotas = 9;
 $somaDeNotas += 6;
@@ -18,3 +18,4 @@ $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 
 echo "Nome do Filme: {$nomeFilme}" . PHP_EOL;
 echo "Nota do Filme: {$notaFilme}" . PHP_EOL;
+echo "Ano de Lançamento: {$anoLancamento}" . PHP_EOL;
