@@ -10,6 +10,10 @@ function exibeMensagemLancamento(int $ano): void {
     }
 }
 
+function incluidoNoPlano(bool $prime, int $ano): bool {
+    return $prime || $ano < 2020;
+}
+
 echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
 $nomeFilme = "Top Gun: Maverick";
@@ -27,6 +31,7 @@ for ($contador = 1; $contador < $argc; $contador += 1) {
 
 $notaFilme = array_sum($notas) / $quantidadeNotas;
 $planoPrime = true;
+$premium = incluidoNoPlano($planoPrime, $anoLancamento);
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 
@@ -34,6 +39,7 @@ echo "Nome do Filme: {$nomeFilme}" . PHP_EOL;
 echo "Nota do Filme: {$notaFilme}" . PHP_EOL;
 echo "Ano de Lançamento: {$anoLancamento}" . PHP_EOL;
 echo exibeMensagemLancamento($anoLancamento);
+echo "Plano prime? [1 = Sim]: {$premium}" . PHP_EOL;
 
 $genero = match($nomeFilme) {
     "Top Gun: Maverick" => 'Ação',
