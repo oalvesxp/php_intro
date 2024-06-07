@@ -9,13 +9,13 @@ $nomeFilme = "Thor: Ragnarok";
 $anoLancamento = 2022;
 
 $quantidadeNotas = $argc - 1;
-$somaDeNotas = 0;
+$notas = [];
 
 for ($contador = 1; $contador < $argc; $contador += 1) {
-    $somaDeNotas += $argv[$contador];
+    $notas[] = (float) $argv[$contador];
 }
 
-$notaFilme = $somaDeNotas / $quantidadeNotas;
+$notaFilme = array_sum($notas) / $quantidadeNotas;
 $planoPrime = true;
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
@@ -49,6 +49,6 @@ $filme = [
     "genero" => "Super-Herói",
 ];
 
-var_dump($filme);
+//var_dump($filme);
 echo PHP_EOL;
 echo $filme['nome'] . PHP_EOL;
