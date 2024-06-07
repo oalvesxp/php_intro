@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/src/funcoes.php';
+
 echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
 $nomeFilme = "Top Gun: Maverick";
@@ -17,38 +19,34 @@ for ($contador = 1; $contador < $argc; $contador += 1) {
 
 $notaFilme = array_sum($notas) / $quantidadeNotas;
 $planoPrime = true;
+$premium = incluidoNoPlano($planoPrime, $anoLancamento);
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 
 echo "Nome do Filme: {$nomeFilme}" . PHP_EOL;
 echo "Nota do Filme: {$notaFilme}" . PHP_EOL;
 echo "Ano de Lançamento: {$anoLancamento}" . PHP_EOL;
-
-if ($anoLancamento > 2022) {
-    echo "Este filme é um lançamento!" . PHP_EOL;
-} elseif ($anoLancamento > 2020 && $anoLancamento <= 2022) {
-    echo "Esse filme ainda é novo." . PHP_EOL;
-} else {
-    echo "Esse filme não é um lançamento." . PHP_EOL;
-}
+echo exibeMensagemLancamento($anoLancamento);
+echo "Plano prime? [1 = Sim]: {$premium}" . PHP_EOL;
 
 $genero = match($nomeFilme) {
-    "Top Gun: Maverick" => 'Ação',
-    "Thor: Ragnarok" => 'Super-Herói',
-    "Se beber não case" => 'Comédia',
-    Default => 'Gênero desconhecido',
+    "Top Gun: Maverick" => 'Acao',
+    "Thor: Ragnarok" => 'Super-Heroi',
+    "Se beber não case" => 'Comedia',
+    Default => 'Genero desconhecido',
 };
 
 echo "Gênero do Filme: {$genero}" . PHP_EOL;
 echo PHP_EOL;
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "Super-Herói",
-];
+$filme = criaFilme(
+    nome: "Thor: Ragnarok",
+    ano: 2021,
+    nota: 7.8,
+    genero: "Super-heroi",
+);
 
-//var_dump($filme);
-echo PHP_EOL;
-echo $filme['nome'] . PHP_EOL;
+var_dump($filme);
+
+$filmeComoStringJson = json_encode($filme);
+file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
