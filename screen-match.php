@@ -39,4 +39,16 @@ $genero = match($nomeFilme) {
     Default => 'Gênero desconhecido',
 };
 
-echo "Gênero do Filme: {$genero}";
+echo "Gênero do Filme: {$genero}" . PHP_EOL;
+echo PHP_EOL;
+
+$filme = [
+    "Thor: Ragnarok",
+    2021,
+    7.8,
+    "Super-Herói"
+];
+
+var_dump($filme);
+echo PHP_EOL;
+echo $filme[0] . PHP_EOL;
