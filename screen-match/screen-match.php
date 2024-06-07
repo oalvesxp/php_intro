@@ -39,12 +39,14 @@ $genero = match($nomeFilme) {
 echo "Gênero do Filme: {$genero}" . PHP_EOL;
 echo PHP_EOL;
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "Super-Heroi",
-];
+$filme = criaFilme(
+    nome: "Thor: Ragnarok",
+    ano: 2021,
+    nota: 7.8,
+    genero: "Super-heroi",
+);
+
+var_dump($filme);
 
 $filmeComoStringJson = json_encode($filme);
 file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
