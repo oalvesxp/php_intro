@@ -30,10 +30,10 @@ echo exibeMensagemLancamento($anoLancamento);
 echo "Plano prime? [1 = Sim]: {$premium}" . PHP_EOL;
 
 $genero = match($nomeFilme) {
-    "Top Gun: Maverick" => 'Ação',
-    "Thor: Ragnarok" => 'Super-Herói',
-    "Se beber não case" => 'Comédia',
-    Default => 'Gênero desconhecido',
+    "Top Gun: Maverick" => 'Acao',
+    "Thor: Ragnarok" => 'Super-Heroi',
+    "Se beber não case" => 'Comedia',
+    Default => 'Genero desconhecido',
 };
 
 echo "Gênero do Filme: {$genero}" . PHP_EOL;
@@ -43,9 +43,8 @@ $filme = [
     "nome" => "Thor: Ragnarok",
     "ano" => 2021,
     "nota" => 7.8,
-    "genero" => "Super-Herói",
+    "genero" => "Super-Heroi",
 ];
 
-var_dump($filme);
-//echo PHP_EOL;
-//echo $filme['nome'] . PHP_EOL;
+$filmeComoStringJson = json_encode($filme);
+file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
