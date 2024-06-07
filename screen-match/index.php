@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/funcoes.php';
+include_once __DIR__ . '/src/funcoes.php';
 
 echo "Bem-vindo(a) ao screen match!" . PHP_EOL;
 
